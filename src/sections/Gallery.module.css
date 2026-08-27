@@ -1,0 +1,138 @@
+.carousel {
+  margin-top: clamp(32px, 5vw, 56px);
+}
+
+/* The window the track slides behind. */
+.frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: var(--navy-950);
+}
+
+.track {
+  display: flex;
+  transition: transform 0.7s var(--ease-out);
+  will-change: transform;
+}
+
+.slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  user-select: none;
+}
+
+/* Logos and drawings sit inside the frame rather than being cropped by it. */
+.contain {
+  object-fit: contain;
+  padding: clamp(20px, 5vw, 56px);
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0 0 4px;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  background: rgba(4, 8, 19, 0.6);
+  color: var(--stone-50);
+  font-family: var(--font-ui);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(2px);
+  transition:
+    background 0.2s var(--ease-out),
+    border-color 0.2s var(--ease-out);
+}
+
+.arrow:hover {
+  background: var(--navy-700);
+  border-color: var(--gold-500);
+}
+
+.arrowPrev {
+  left: clamp(10px, 2vw, 20px);
+}
+
+.arrowNext {
+  right: clamp(10px, 2vw, 20px);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.caption {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-soft);
+}
+
+.dots {
+  display: flex;
+  gap: 10px;
+  flex: none;
+}
+
+.dot {
+  width: 26px;
+  height: 3px;
+  padding: 0;
+  border: 0;
+  background: var(--rule);
+  cursor: pointer;
+  transition: background 0.3s var(--ease-out);
+}
+
+.dot:hover {
+  background: var(--fg-soft);
+}
+
+.dotActive {
+  background: var(--accent);
+}
+
+@media (max-width: 700px) {
+  .image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    transition: none;
+  }
+}

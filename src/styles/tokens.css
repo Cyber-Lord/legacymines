@@ -1,0 +1,76 @@
+/* =============================================================================
+   Design tokens — the single place to change the look of the whole site.
+   Brand colours are sampled from the Legacy Minerals logo.
+   ============================================================================= */
+:root {
+  /* Brand palette */
+  --navy-950: #040813; /* logo background — header & footer use this so the logo blends */
+  --navy-900: #0a1226; /* dark sections */
+  --navy-800: #121c36; /* cards and panels on dark */
+  --navy-700: #1b2a4a; /* hover states, drawing fills */
+  --gold-500: #cc9f4e; /* logo gold */
+  --gold-400: #e2be72; /* gold highlights on dark backgrounds */
+  --gold-700: #7f5c1f; /* gold as text on light backgrounds (passes WCAG AA) */
+  --stone-50: #f6f5f1; /* page background */
+  --stone-100: #eceae3; /* alternate bands */
+  --stone-300: #d3d0c6; /* rules and borders */
+  --ink-900: #0f172e; /* body text */
+  --ink-600: #3f4763; /* secondary text */
+  --white: #ffffff;
+
+  /* Typography */
+  --font-display: 'Cinzel', 'Trajan Pro', Georgia, serif;
+  --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-ui: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Layout */
+  --max-width: 1180px;
+  --gutter: clamp(20px, 5vw, 64px);
+  --section-y: clamp(64px, 9vw, 128px);
+  --header-height: 76px;
+  --radius: 2px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.6, 0, 0.2, 1);
+}
+
+/* -----------------------------------------------------------------------------
+   Tones. Every section declares data-tone; components only ever read the
+   semantic variables below, so a component looks right on any background
+   without knowing which one it is on.
+   ----------------------------------------------------------------------------- */
+:root,
+[data-tone='light'] {
+  --bg: var(--stone-50);
+  --fg: var(--ink-900);
+  --fg-soft: var(--ink-600);
+  --rule: var(--stone-300);
+  --accent: var(--gold-700);
+  --card-bg: var(--white);
+  --btn-bg: var(--navy-900);
+  --btn-bg-hover: var(--navy-700);
+  --btn-fg: var(--stone-50);
+  --btn-ghost: var(--ink-900);
+}
+
+[data-tone='alt'] {
+  --bg: var(--stone-100);
+}
+
+[data-tone='dark'],
+[data-tone='brand'] {
+  --bg: var(--navy-900);
+  --fg: var(--stone-50);
+  --fg-soft: #b9bfd0;
+  --rule: rgba(246, 245, 241, 0.18);
+  --accent: var(--gold-400);
+  --card-bg: var(--navy-800);
+  --btn-bg: var(--gold-500);
+  --btn-bg-hover: var(--gold-400);
+  --btn-fg: var(--navy-950);
+  --btn-ghost: var(--stone-50);
+}
+
+[data-tone='brand'] {
+  --bg: var(--navy-950);
+}

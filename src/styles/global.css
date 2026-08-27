@@ -1,0 +1,128 @@
+/* Base styles and a few shared typographic utilities. Everything else lives in CSS Modules. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--stone-50);
+  color: var(--ink-900);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  max-width: 28ch;
+}
+
+h3 {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+p {
+  margin-top: 0;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--gold-500);
+  outline-offset: 3px;
+}
+
+.skipLink {
+  position: absolute;
+  left: -999px;
+  top: 8px;
+  z-index: 100;
+  padding: 8px 12px;
+  background: var(--navy-950);
+  color: var(--stone-50);
+  font-family: var(--font-ui);
+}
+
+.skipLink:focus {
+  left: 8px;
+}
+
+.lede {
+  margin: 28px 0 0;
+  max-width: 56ch;
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+  line-height: 1.5;
+  color: var(--fg-soft);
+}
+
+.ledeSm {
+  margin: 22px 0 0;
+  max-width: 52ch;
+  font-size: 1.15rem;
+  color: var(--fg-soft);
+}
+
+.prose p {
+  margin: 0 0 1.1em;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

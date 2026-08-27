@@ -1,0 +1,32 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 6vw, 80px);
+  align-items: start;
+}
+
+.cards {
+  margin-top: clamp(40px, 6vw, 72px);
+}
+
+.card {
+  padding: 28px 28px 30px;
+  background: var(--card-bg);
+  border: 1px solid var(--rule);
+  border-top: 4px solid var(--navy-900);
+}
+
+.card p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.cardEyebrow {
+  margin-bottom: 12px;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

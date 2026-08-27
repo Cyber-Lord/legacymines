@@ -1,0 +1,20 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 6vw, 80px);
+  align-items: start;
+}
+
+.heading {
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+}
+
+.prose {
+  margin-top: 20px;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

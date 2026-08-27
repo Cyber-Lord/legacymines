@@ -1,0 +1,13 @@
+{
+  "name": "Legacy Minerals Limited",
+  "short_name": "Legacy Minerals",
+  "description": "Building value from Nigeria's mineral wealth.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#040813",
+  "theme_color": "#040813",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

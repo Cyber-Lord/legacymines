@@ -1,0 +1,56 @@
+.form {
+  display: grid;
+  gap: 16px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.label {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-soft);
+}
+
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: rgba(246, 245, 241, 0.06);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+.input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 0;
+  border-color: var(--accent);
+}
+
+.textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.submit {
+  justify-self: start;
+}
+
+.status {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--fg-soft);
+}
+
+.statusError {
+  color: var(--accent);
+}
