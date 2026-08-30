@@ -9,15 +9,16 @@ export const company: Company = {
   shortName: 'Legacy Minerals',
   tagline: 'Mining today. Building tomorrow. Leaving a legacy.',
   descriptor: 'Building value from Nigeria’s mineral wealth',
-  rcNumber: '[Add RC number]',
+  rcNumber: '[9803144]', // Corporate Affairs Commission registration number
   registeredIn: 'Nigeria',
 }
 
 export const contact: ContactDetails = {
-  addressLines: ['[Add office address]'],
-  phones: ['[Add phone number]'],
-  emails: ['[Add company email]'],
-  formEndpoint: '',
+  addressLines: ['[123 Mining Street]', '[Abuja, Nigeria]'],
+  phones: ['[09090909090]'],
+  emails: ['[info@legacyminerals.com.ng]'],
+  // Relays submissions to umaralfaruq02@gmail.com. Swap for the hashed FormSubmit URL once activated.
+  formEndpoint: 'https://formsubmit.co/ajax/umaralfaruq02@gmail.com',
 }
 
 export const nav: NavLink[] = [

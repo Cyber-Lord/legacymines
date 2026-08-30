@@ -92,12 +92,29 @@ Components never hard-code colours.
 
 ### Enquiry form
 
-Two modes, chosen automatically from `contact.formEndpoint` in `content/site.ts`:
+The site is static, so the form hands the message to a hosted relay. The mode is chosen
+automatically from `contact.formEndpoint` in `content/site.ts`:
 
-- **Empty (default):** the form opens the visitor's email app with the message prepared, addressed
-  to the first entry in `contact.emails`. No backend needed.
-- **Set to a POST endpoint** (Formspree, Basin, Getform, or your own API): the form submits
-  as JSON and shows a confirmation. Create the endpoint, paste its URL, done.
+- **Set to a POST endpoint (current setup):** the form submits as JSON and shows a confirmation.
+  It currently points at FormSubmit, which forwards each enquiry to `umaralfaruq02@gmail.com`.
+  Formspree, Basin, Getform or your own API work the same way — paste the URL and nothing else
+  changes. `_subject` and `_replyto` are sent along, so replying to the notification answers the
+  visitor directly.
+- **Empty:** the form falls back to opening the visitor's email app with the message prepared,
+  addressed to the first entry in `contact.emails`. That entry is still a placeholder, so the
+  fallback does nothing until a real address replaces it.
+
+**First submission activates the address.** FormSubmit needs no account, but the very first POST
+to a new address triggers a confirmation email from them. Open it and click Activate; enquiries
+are only delivered from then on.
+
+**Then hide the address.** The endpoint above contains the inbox in plain text, and it ships in
+the JavaScript bundle where scrapers can read it. Once activated, FormSubmit shows a hashed
+endpoint (`https://formsubmit.co/ajax/<random-hash>`) that relays to the same inbox without
+naming it — swap it into `formEndpoint` and the address is no longer public.
+
+A hidden `_honey` field sits in the form as a spam trap. Visitors never see it; submissions that
+fill it are silently dropped in the browser and never reach the relay.
 
 ### SEO
 

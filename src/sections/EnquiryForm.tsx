@@ -10,6 +10,9 @@ type Status =
 
 const emptyEnquiry: Enquiry = { name: '', email: '', organisation: '', message: '' }
 
+/** FormSubmit's spam-trap field name. */
+const HONEYPOT = '_honey'
+
 export function EnquiryForm() {
   const id = useId()
   const [enquiry, setEnquiry] = useState<Enquiry>(emptyEnquiry)
@@ -22,6 +25,12 @@ export function EnquiryForm() {
     event.preventDefault()
     if (!enquiry.name.trim() || !enquiry.email.trim() || !enquiry.message.trim()) {
       setStatus({ kind: 'error', message: 'Add your name, email and message before sending.' })
+      return
+    }
+
+    // Only a bot fills the hidden field. Show success and send nothing.
+    if (new FormData(event.currentTarget).get(HONEYPOT)) {
+      setStatus({ kind: 'sent' })
       return
     }
 
@@ -76,6 +85,14 @@ export function EnquiryForm() {
         value={enquiry.organisation}
         onChange={update('organisation')}
         autoComplete="organization"
+      />
+      <input
+        type="text"
+        name={HONEYPOT}
+        className={styles.honeypot}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
       />
       <div className={styles.field}>
         <label htmlFor={`${id}-message`} className={styles.label}>

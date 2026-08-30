@@ -54,3 +54,12 @@
 .statusError {
   color: var(--accent);
 }
+
+/* Spam trap: off-screen and skipped by keyboard, so only bots ever fill it. */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
