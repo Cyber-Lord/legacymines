@@ -15,7 +15,7 @@ export const company: Company = {
 
 export const contact: ContactDetails = {
   addressLines: ['[123 Mining Street]', '[Abuja, Nigeria]'],
-  phones: ['[09090909090]'],
+  phones: ['[09130006881]', '[09113000007]'],
   emails: ['[info@legacyminerals.com.ng]'],
   // Relays submissions to umaralfaruq02@gmail.com. Swap for the hashed FormSubmit URL once activated.
   formEndpoint: 'https://formsubmit.co/ajax/umaralfaruq02@gmail.com',
